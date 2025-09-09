@@ -1,0 +1,80 @@
+import pygame
+import random
+
+pygame.init()
+
+# ---- Tela ----
+LARGURA, ALTURA = 800, 600
+tela = pygame.display.set_mode((LARGURA, ALTURA))
+pygame.display.set_caption("RPG Heroi vs Goblin")
+clock = pygame.time.Clock()
+fonte = pygame.font.SysFont(None, 30)
+
+# ---- Sprites ----
+sprite_sheet_heroi = pygame.image.load("heroi.png.png").convert_alpha()
+sprite_sheet_goblin = pygame.image.load("goblin.png.png").convert_alpha()
+
+def get_frame(sheet, frame, largura, altura):
+    x = frame * largura
+    y = 0
+    return sheet.subsurface((x, y, largura, altura))
+
+frames_heroi = [get_frame(sprite_sheet_heroi, i, 64, 64) for i in range(4)]
+frames_goblin = [get_frame(sprite_sheet_goblin, i, 64, 64) for i in range(4)]
+frame_heroi = 0
+frame_goblin = 0
+
+# ---- Status ----
+jogador = {"HP": 100, "ATK": 15, "DEF": 5, "x":150, "y":300}
+goblin = {"HP": 80, "ATK": 10, "DEF": 3, "x":550, "y":300}
+
+# ---- Loop principal ----
+rodando = True
+mensagem = ""
+while rodando:
+    for evento in pygame.event.get():
+        if evento.type == pygame.QUIT:
+            rodando = False
+        # Ataque jogador
+        if evento.type == pygame.KEYDOWN:
+            if evento.key == pygame.K_SPACE and jogador["HP"] > 0 and goblin["HP"] > 0:
+                dano = max(0, jogador["ATK"] - goblin["DEF"] + random.randint(-2,2))
+                goblin["HP"] -= dano
+                mensagem = f"Você causou {dano} de dano!"
+                # Goblin ataca de volta
+                if goblin["HP"] > 0:
+                    dano_g = max(0, goblin["ATK"] - jogador["DEF"] + random.randint(-2,2))
+                    jogador["HP"] -= dano_g
+                    mensagem += f" Goblin causou {dano_g} de dano!"
+
+    # Atualizar frames
+    frame_heroi = (frame_heroi + 1) % len(frames_heroi)
+    frame_goblin = (frame_goblin + 1) % len(frames_goblin)
+
+    # ---- Desenhar ----
+    tela.fill((50, 50, 50))
+    tela.blit(frames_heroi[frame_heroi], (jogador["x"], jogador["y"]))
+    tela.blit(frames_goblin[frame_goblin], (goblin["x"], goblin["y"]))
+
+    # Texto de HP
+    texto_jog = fonte.render(f"Seu HP: {jogador['HP']}", True, (255,255,255))
+    texto_gob = fonte.render(f"Goblin HP: {goblin['HP']}", True, (255,255,255))
+    tela.blit(texto_jog, (50,50))
+    tela.blit(texto_gob, (600,50))
+
+    # Mensagem de ataque
+    mensagem_texto = fonte.render(mensagem, True, (255,255,0))
+    tela.blit(mensagem_texto, (200,550))
+
+    # Mensagem de fim de batalha
+    if jogador["HP"] <= 0:
+        fim = fonte.render("💀 Você foi derrotado!", True, (255,0,0))
+        tela.blit(fim, (300, 500))
+    elif goblin["HP"] <= 0:
+        fim = fonte.render("🏆 Você venceu!", True, (0,255,0))
+        tela.blit(fim, (300, 500))
+
+    pygame.display.flip()
+    clock.tick(5)
+
+pygame.quit()
