@@ -1,0 +1,92 @@
+#Tabuada
+while True:
+  number = int(input("Digite um número para ver sua tabuada: "))
+  if number == 0:
+    break
+  for tabuada in range(1, 11):
+    print(f"{number} X {tabuada} = {number * tabuada}")
+  print("Digite 0 para sair ou qualquer outro número para continuar a ver as tabuadas.")
+
+
+
+#Soma de uma lista
+while True:
+  lista = input("Digite os numeros para somar a lista usando , para separar: ")
+  soma = sum(int(num) for num in lista.split(","))
+  print("A soma dos números é:", soma)
+  #pergunta se o usuário quer continuar
+  continuar = input("Deseja continuar? (s/n): ")
+  if continuar.lower() != "s":
+    print("Fim do programa.")
+    break
+
+
+
+#Remove números duplicados de uma lista
+lista = [1,1,1,1,2,2,3,4,5]
+remove_duplicados = list(set(lista))
+print(remove_duplicados)
+
+#Remove os duplicados e ordena a lista
+lista = [1, 5,5,7,3,3,8,8,4,4]
+remove_ordena = sorted(set(lista))
+print(remove_ordena)
+
+  
+
+
+#Inversor de palavras
+while True:
+  palavra = input("Digite uma palavra: ")
+  if palavra == 'sair':
+    break
+  print(palavra[::-1])
+  print("Digite 'sair' para encerrar o programa.")
+  
+
+
+
+#Contador
+while True:
+  i = int(input("Digite um numero, para obter seu contador: "))
+  for x in range(0, i + 1):
+    print(x)
+  
+  continuar = input("Gostaria de continuar? (s/n): ")
+  if continuar.lower() != "s":
+    print("Fim do contador.")
+    break 
+  
+  
+
+
+
+
+#média de notas
+lista_notas = int(input("Quantas notas você quer calcular?"))
+notas = []
+for i in range(lista_notas):
+  notas.append(float(input("Digite a nota: ")))
+  média = sum(notas) / lista_notas
+  print("A média das notas é:", média)
+  
+
+
+  
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
