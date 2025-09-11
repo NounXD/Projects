@@ -61,7 +61,6 @@ while True:
 
 
 
-
 #média de notas
 lista_notas = int(input("Quantas notas você quer calcular?"))
 notas = []
@@ -72,8 +71,102 @@ for i in range(lista_notas):
   
 
 
+#Conversor de temperatura celsius para Fahrenheit
+while True:
+  def celsius_to_farenheit(celsius):
+   return celsius * 9.0 / 5 + 32
+
+  celsius = float(input("Digite a temperatura em graus celsius: "))
+
+  Farenheit = celsius_to_farenheit(celsius)
+
+  print(f"{celsius} °C é igual a,{Farenheit}°F")
+
+  continuar = input("Deseja continuar? (s/n): ")
+  if continuar.lower() != "s":
+   print("Fim do programa")
+   break
   
   
+
+#dicionario de alunos
+while True:
+  aluno = input("Digite o nome do aluno:")
+  idade = int(input("Digite a idade do aluno:"))
+  nota = float(input("Digite a nota do aluno:"))
+  dicionário_aluno = {"nome": aluno, "idade": idade, "nota": nota}
+  print(dicionário_aluno)
+  
+  continuar = input("Deseja continuar? (s/n): ")
+  if continuar != "s":
+    print("Fim do programa.")
+    break
+
+  
+  
+
+#função de área de um retângulo
+def area_retangulo(base, altura):
+  return base * altura
+print(area_retangulo(3,4))
+
+#função de área de um quadrado
+def area_quadrado(lado):
+  return lado * lado
+print(area_quadrado(3))
+
+#função de um triângulo
+def area_triangulo(base, altura):
+  return base * altura / 2
+print(area_triangulo(3,4))
+  
+  
+
+#função para maior número 
+while True:
+  a = int(input("Digite o primeiro número: "))
+  b = int(input("Digite o segundo numero: "))
+  c = int(input("Digite o terceiro numero: "))
+  def maior_numero(a, b, c):
+   return max(a, b, c)
+  print("O maior número é:",           maior_numero(a, b, c))
+
+  continuar = input("Continuar? (s/n) ")
+  if continuar.lower() != "s":
+    print("Fim do programa")
+    break
+    
+
+  
+  
+
+  
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
 
   
 
