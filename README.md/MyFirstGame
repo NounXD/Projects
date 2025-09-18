@@ -1,0 +1,79 @@
+# RPG Herói vs Goblin
+
+## 🎮 Descrição
+RPG Herói vs Goblin é um jogo simples desenvolvido em **Python** usando a biblioteca **Pygame**.  
+O jogador controla um herói que enfrenta um goblin em combate por turnos.  
+O jogo possui animação de sprites, cálculo de dano, defesa e mensagens dinâmicas de ataque.
+
+⚡ Funcionalidades
+- Sistema de combate interativo: ataque do jogador e contra-ataque do goblin.  
+- Cálculo de dano considerando ataque e defesa dos personagens.  
+- Animação de sprites do herói e do goblin.  
+- Indicadores de HP atualizados em tempo real.  
+- Mensagens informativas de ataque e resultado do combate (vitória ou derrota).  
+
+## 🛠 Tecnologias
+- Linguagem: Python 3.x  
+- Biblioteca: Pygame  
+- Editor sugerido: VS Code ou PyCharm  
+
+## 🚀 Instalação
+
+1. Clone este repositório:
+```bash
+git clone https://github.com/seu-usuario/rpg-heroi-vs-goblin.git
+cd rpg-heroi-vs-goblin
+
+Instale a biblioteca Pygame:
+
+pip install pygame
+
+🎮 Como Jogar
+
+Execute o arquivo principal:
+
+python nome_do_arquivo.py
+
+
+Use a barra de espaço para atacar o goblin.
+
+Observe o HP do herói e do goblin no canto superior da tela.
+O combate continua até que o HP de um dos personagens chegue a 0.
+
+Mensagens informam o dano causado e o resultado do combate.
+
+Exemplo de Gameplay
+
+HP do jogador e do goblin exibidos na tela.
+
+Mensagem de ataque como:
+
+Você causou 12 de dano! Goblin causou 8 de dano!
+
+
+Mensagem de fim de batalha:
+
+🏆 Você venceu!  ou  💀 Você foi derrotado!
+
+Aprendizado / Objetivo do Projeto
+
+Praticar desenvolvimento de jogos 2D com Python e Pygame.
+
+Aprender manipulação de sprites, loops, eventos de teclado e lógica de combate.
+
+Desenvolver interface simples e interação do usuário.
+
+Possíveis Melhorias Futuras
+
+Criar Classes Jogador e Inimigo para organização do código.
+
+Adicionar múltiplos inimigos e níveis de dificuldade.
+
+Implementar efeitos visuais de ataque e animação de morte.
+
+Salvar pontuação ou histórico de batalhas.
+
+Criar menus de início e fim de jogo.
+
+Contato
+LinkedIn: https://www.linkedin.com/in/juan-esdras-9a269820b/
