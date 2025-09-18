@@ -1,0 +1,17 @@
+# Tabuada interativa com escolha de limite
+while True:
+    try:
+        numero = int(input("Digite um número: "))
+        limite = int(input("Até qual número deseja a tabuada? "))
+    except ValueError:
+        print("Por favor, digite apenas números inteiros.")
+        continue
+
+    for i in range(1, limite + 1):
+        print(f"{numero} x {i} = {numero * i}")
+
+    continuar = input("Deseja continuar? (s/n): ")
+    if continuar.lower() != "s":
+        break
+
+print("Fim do programa!")
